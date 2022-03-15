@@ -20,13 +20,11 @@ export interface InitConfiguration {
     silentMultipleInit?: boolean | undefined;
     trackInteractions?: boolean | undefined;
     trackViewsManually?: boolean | undefined;
-    /**
-     */
     proxyHost?: string | undefined;
     proxyUrl?: string | undefined;
+    proxyApiKey?: string;
     beforeSend?: BeforeSendCallback | undefined;
     defaultPrivacyLevel?: DefaultPrivacyLevel | undefined;
-    proxyApiKey?: string;
     service?: string | undefined;
     env?: string | undefined;
     version?: string | undefined;

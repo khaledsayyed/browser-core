@@ -16,10 +16,6 @@ export function validateAndBuildConfiguration(initConfiguration, buildEnv) {
         display.error('Client Token is not configured, we will not send any data.');
         return;
     }
-    if (!!initConfiguration.proxyApiKey && !initConfiguration.proxyHost && !initConfiguration.proxyUrl) {
-        display.error('`proxyApiKey` can only be used with `proxyHost` or `proxyUrl`.');
-        return;
-    }
     if (initConfiguration.sampleRate !== undefined && !isPercentage(initConfiguration.sampleRate)) {
         display.error('Sample Rate should be a number between 0 and 100');
         return;

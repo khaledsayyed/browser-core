@@ -79,7 +79,6 @@ export class HttpRequest {
       monitor((event) => transportIntrospection(event))
     )
     request.open('POST', url, true)
-
     request.send(data)
   }
 }

@@ -27,13 +27,11 @@ export interface InitConfiguration {
   trackInteractions?: boolean | undefined
   trackViewsManually?: boolean | undefined
 
-  /**
-   */
   proxyHost?: string | undefined
   proxyUrl?: string | undefined
+  proxyApiKey?: string
   beforeSend?: BeforeSendCallback | undefined
   defaultPrivacyLevel?: DefaultPrivacyLevel | undefined
-  proxyApiKey?: string
 
   service?: string | undefined
   env?: string | undefined
@@ -64,7 +62,7 @@ export interface Configuration extends TransportConfiguration {
   sampleRate: number
   service: string | undefined
   silentMultipleInit: boolean
-  proxyApiKey?: string
+  proxyApiKey?: string,
 
   // Event limits
   maxErrorsPerMinute: number
@@ -84,10 +82,6 @@ export function validateAndBuildConfiguration(
 ): Configuration | undefined {
   if (!initConfiguration || !initConfiguration.clientToken) {
     display.error('Client Token is not configured, we will not send any data.')
-    return
-  }
-  if (!!initConfiguration.proxyApiKey && !initConfiguration.proxyHost && !initConfiguration.proxyUrl) {
-    display.error('`proxyApiKey` can only be used with `proxyHost` or `proxyUrl`.')
     return
   }
 
